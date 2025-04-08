@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Upload Inventory Data - AI Inventory Management{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Upload Data for Model Training</h2>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-info">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <div class="card">
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="file" class="form-label">Select File</label>
+                    <input type="file" class="form-control" id="file" name="file" required>
+                    <div class="form-text">Supported formats: CSV, Excel (XLSX, XLS), JSON</div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="data_type" class="form-label">Data Type</label>
+                    <select class="form-select" id="data_type" name="data_type" required>
+                        <option value="">Select data type</option>
+                        <option value="transactions">Transaction Data</option>
+                        <option value="products">Product Data</option>
+                        <option value="sales">Sales Data</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="date_format" class="form-label">Date Format</label>
+                    <input type="text" class="form-control" id="date_format" name="date_format" 
+                           placeholder="e.g., %Y-%m-%d" required>
+                    <div class="form-text">Enter the date format used in your file (e.g., %Y-%m-%d for 2024-01-01)</div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Upload and Process</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="mt-4">
+        <h4>Data Format Requirements</h4>
+        <div class="card">
+            <div class="card-body">
+                <h5>Transaction Data</h5>
+                <p>Required columns: date, product_id, quantity, transaction_type (in/out)</p>
+                
+                <h5>Product Data</h5>
+                <p>Required columns: product_id, name, category, unit_price, reorder_point</p>
+                
+                <h5>Sales Data</h5>
+                <p>Required columns: date, product_id, quantity_sold, revenue</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
