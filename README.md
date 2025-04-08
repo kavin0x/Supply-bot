@@ -1,3 +1,6 @@
+#NOTE:
+This project is still way in beta, hardly working, feel free to help me work on this.
+
 # Supply-bot
 
 Supply-bot is an AI-powered inventory management system that leverages GPT models to provide intelligent inventory analysis, demand prediction, and optimization recommendations.
