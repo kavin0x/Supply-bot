@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Minimal SaaS Dark Theme (Vercel/Linear inspired) */
+    --bg-base: #000000;
+    --bg-surface: #0a0a0a;
+    --bg-elevated: #111111;
+    --bg-highlight: #1a1a1a;
+    
+    /* Accents */
+    --accent-primary: #ffffff;
+    --accent-blue: #3b82f6;
+    --accent-indigo: #6366f1;
+    --accent-success: #10b981;
+    
+    /* Typography */
+    --text-primary: #ededed;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    
+    /* Borders & Shadows */
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-focus: rgba(255, 255, 255, 0.3);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--bg-highlight);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border-focus);
+}
+
+/* Typography Enhancements */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--accent-primary);
+}
+
+/* Core Surface Utilities */
+.surface {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    border-radius: 8px;
+    position: relative;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Sidebar */
+.sidebar {
+    min-height: 100vh;
+    background: var(--bg-base);
+    border-right: 1px solid var(--border-color);
+    padding: 2rem 1.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.nav-link {
+    color: var(--text-secondary) !important;
+    border-radius: 6px;
+    margin-bottom: 0.25rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--text-primary) !important;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-link.active {
+    color: var(--text-primary) !important;
+    background: rgba(255, 255, 255, 0.08);
+    font-weight: 600;
+}
+
+/* Main Content */
+.main-content {
+    padding: 3rem 4rem;
+    min-height: 100vh;
+    background: var(--bg-base);
+}
+
+/* Buttons */
+.btn {
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease;
+    letter-spacing: normal;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: var(--accent-primary);
+    color: var(--bg-base);
+    border: 1px solid var(--accent-primary);
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background: #d4d4d8;
+    border-color: #d4d4d8;
+    color: var(--bg-base);
+}
+
+.btn-secondary, .btn-outline-secondary {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover, .btn-outline-secondary:hover {
+    background: var(--bg-highlight);
+    border-color: var(--border-focus);
+    color: var(--text-primary);
+}
+
+/* Forms */
+.form-control, .form-select {
+    background: var(--bg-base);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 6px;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    background: var(--bg-base);
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 1px var(--border-focus);
+    color: var(--text-primary);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: var(--text-muted);
+}
+
+/* AI Report Block */
+.ai-report {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Input groups */
+.input-group-text {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+/* Drop Area */
+#drop-area {
+    transition: all 0.2s ease;
+    border: 1px dashed var(--border-color) !important;
+    background: var(--bg-surface) !important;
+}
+#drop-area:hover {
+    border-color: var(--border-focus) !important;
+    background: var(--bg-highlight) !important;
+}

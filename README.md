@@ -11,6 +11,7 @@ Supply-bot is an AI-powered inventory management system that leverages GPT model
 - **Data Processing**: Support for multiple data formats (CSV, Excel, JSON)
 - **Demand Prediction**: AI-powered forecasting for optimal stock levels
 - **Inventory Search**: Intelligent search functionality for inventory items
+- **Embedding-backed Search**: Semantic retrieval ranks products by meaning before the AI responds
 - **Comprehensive Reporting**: Generate detailed inventory reports and insights
 - **Fine-tuning Capabilities**: Customize the AI model with your specific inventory data
 
@@ -40,6 +41,7 @@ pip install -r requirements.txt
 
 ```
 OPENAI_API_KEY=your_api_key_here
+SUPPLYBOT_EMBEDDING_MODEL=google/gemini-embedding-2
 Secret-Key=Key-Goes-Here
 ```
 
@@ -57,8 +59,10 @@ python app.py
 
    - Process and analyze inventory data
    - Generate demand predictions
-   - Search inventory items
+   - Search inventory items with semantic matching
    - Generate comprehensive reports
+
+The search layer now uses the cloud embedding model `google/gemini-embedding-2` for semantic ranking, and it automatically falls back to recomputing any legacy stored vectors that no longer match the current embedding shape.
 
 ## Data Processing
 
