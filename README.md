@@ -24,7 +24,7 @@ cd Supply-bot
 1. Create a virtual environment (recommended):
 
 ```bash
-python -m venv venv
+python -m venv .venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
@@ -40,14 +40,27 @@ pip install -r requirements.txt
 OPENAI_API_KEY=your_api_key_here
 SUPPLYBOT_EMBEDDING_MODEL=google/gemini-embedding-2
 Secret-Key=Key-Goes-Here
+DATABASE_URL=sqlite:///inventory.db
+```
+
+``` bash
+cd frontend
+npm install
 ```
 
 ## Usage
 
-1. Start the Flask application:
+1. Start the Flask backend application:
 
 ```bash
 python app.py
+```
+
+Start the frontend:
+
+```bash
+cd frontend
+npm run dev
 ```
 
 1. Access the web interface at `http://localhost:5000`
@@ -68,29 +81,6 @@ The system supports three types of data:
 - **Transactions**: Historical transaction data
 - **Products**: Product catalog information
 - **Sales**: Sales data and trends
-
-## Dependencies
-
-- Flask 3.0.2
-- Pandas 2.2.1
-- NumPy 1.26.4
-- scikit-learn 1.4.1
-- Matplotlib 3.8.3
-- OpenAI API 1.12
-- And other dependencies listed in requirements.txt
-
-## Project Structure
-
-``` plaintext
-Supply-bot/
-├── app.py              # Main Flask application
-├── gpt_model.py        # GPT model implementation
-├── requirements.txt    # Project dependencies
-├── .env               # Environment variables
-├── training_data/     # Directory for training data
-├── templates/         # Flask templates
-└── instance/          # Database instance
-```
 
 ## Contributing
 

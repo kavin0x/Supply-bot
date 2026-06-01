@@ -9,3 +9,5 @@ codegraph
 .claude
 .vscode/
 
+__node_modules__
+node_modules/
