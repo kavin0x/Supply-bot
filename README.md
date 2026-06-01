@@ -1,6 +1,3 @@
-#NOTE:
-This project is still way in beta, hardly working, feel free to help me work on this.
-
 # Supply-bot
 
 Supply-bot is an AI-powered inventory management system that leverages GPT models to provide intelligent inventory analysis, demand prediction, and optimization recommendations.
@@ -24,22 +21,22 @@ git clone https://github.com/Kthecodeer2/Supply-bot.git
 cd Supply-bot
 ```
 
-2. Create a virtual environment (recommended):
+1. Create a virtual environment (recommended):
 
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-3. Install dependencies:
+1. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Create a `.env` file in the project root with your OpenAI API key and a random secret key:
+1. Create a `.env` file in the project root with your OpenAI API key and a random secret key:
 
-```
+``` envfile
 OPENAI_API_KEY=your_api_key_here
 SUPPLYBOT_EMBEDDING_MODEL=google/gemini-embedding-2
 Secret-Key=Key-Goes-Here
@@ -53,9 +50,9 @@ Secret-Key=Key-Goes-Here
 python app.py
 ```
 
-2. Access the web interface at `http://localhost:5000`
-3. Upload your inventory data in one of the supported formats (CSV, Excel, or JSON)
-4. Use the interface to:
+1. Access the web interface at `http://localhost:5000`
+2. Upload your inventory data in one of the supported formats (CSV, Excel, or JSON)
+3. Use the interface to:
 
    - Process and analyze inventory data
    - Generate demand predictions
@@ -84,7 +81,7 @@ The system supports three types of data:
 
 ## Project Structure
 
-```
+``` plaintext
 Supply-bot/
 ├── app.py              # Main Flask application
 ├── gpt_model.py        # GPT model implementation
